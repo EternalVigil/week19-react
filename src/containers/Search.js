@@ -1,34 +1,32 @@
-// NYT Search - App.js
+// NYT Search - Seach.js
+
 import React { PropTypes, Component } from "react";
-import "./App.css";
+import "./Search.css";
 
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 function routeHelper (routes){
-	let path = (routes[routes.length - 1] || {}).path || "Home";
+	let path = (routes[routes.length -1] || {}).path || "Home";
 	return path.replace("/", "").toUpperCase() || "Unknown Page";
+	
 }
 
-class App extends Component{
+class Search extends Component{
 	render(){
 		return(
-		<div className="App">
+		<div className="Search">
 		<Header />
 				<h1>{routeHelper(this.props.routes)}{" "}</h1>
-				<div className="container App-content">
-				{this.props.children}
-				</div>
 		<Footer />
-			
 			</div>
 		);
 	}
 }
 
-App.propTypes = {
+Search.propTypes = {
 	children: PropTypes.node,
 	routes: PropTypes.array
-};
+}
 
-export default App;
+export default Search;
